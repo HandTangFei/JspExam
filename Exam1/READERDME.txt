@@ -1,0 +1,4 @@
+1 进入 \JspExam\Exam1\src\main\java  目录下，配置 dbconfig.properties 文。
+2 配置好数据库后，在\Exam1\ 目录下运行  mvn jetty:run  。
+3 当服务器成功运行时，在浏览器地址栏输入  localhost:8080 ,出来导航界面。
+4 在导航界面可以进入登录界面、显示film信息界面
