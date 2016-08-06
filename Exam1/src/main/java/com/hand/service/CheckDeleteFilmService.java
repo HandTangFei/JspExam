@@ -1,22 +1,21 @@
 package com.hand.service;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 
 import com.hand.dao.FilmDao;
 import com.hand.dao.impl.FilmDaoImpl;
+import com.hand.entity.Film;
 import com.hand.util.ConnectionFactory;
 
-public class ShowFilmService {
+public class CheckDeleteFilmService {
 	private FilmDao filmDao = new FilmDaoImpl();
-	private ResultSet  resultSet =null;
-	public ResultSet show(){
+	private boolean bool;
+	public boolean check(Film film){
 		Connection conn = null;
-		
 		try {
 			conn = ConnectionFactory.getInstance().makeConnection();
 			conn.setAutoCommit(false);
-			resultSet = filmDao.get(conn);
+		    bool = filmDao.delete(conn,film);
 		} catch (Exception e) {
 			e.printStackTrace();
 			try {
@@ -32,6 +31,6 @@ public class ShowFilmService {
 				e3.printStackTrace();
 			}
 		}
-		return resultSet;
+		return bool;
 	}
 }

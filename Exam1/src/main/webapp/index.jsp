@@ -15,8 +15,8 @@
 </style>
 
 </head>
+
 <body>
-	<form action="<%= request.getContextPath() %>/CheckServlet" method="post" name="loginForm">
 		<table border = "1" cellspacing="0" cellpadding = "5" bordercolor="silver" align="center">
 			<tr>
 				<td colspan="2" align="center" bgcolor="#E8E8E8">
@@ -26,15 +26,15 @@
 			</tr>
 			
 			<tr>
-				<td><a href = "<%= request.getContextPath() %>/film/showFilm.jsp">显示电影信息</a> </td>
+				<td>
+					<a href="<%= request.getContextPath() %>/film/showFilm.jsp">显示film信息</a>
+				 </td>
 			</tr>	
 
 			<tr>
-				<td><input type="password" name = "password"/></td>
+				<td><a href = "<%= request.getContextPath() %>/film/addFilm.jsp">添加film信息</a> </td></td>
 			</tr>
 
 		</table>
-		
-	</form>
 </body>
 </html>

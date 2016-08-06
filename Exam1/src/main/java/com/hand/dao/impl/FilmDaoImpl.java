@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.hand.dao.FilmDao;
+import com.hand.entity.Film;
 
 public class FilmDaoImpl implements FilmDao{
 
@@ -15,4 +16,11 @@ public class FilmDaoImpl implements FilmDao{
 		return ps.executeQuery();
 	}
 
+	public boolean delete(Connection conn, Film film) throws SQLException {
+		String sql = "DELETE FROM film where film_id = ? ";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, film.getFilm_id());
+		boolean bool = ps.execute();
+		return bool;
+	}
 }

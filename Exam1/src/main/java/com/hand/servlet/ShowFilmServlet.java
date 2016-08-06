@@ -2,6 +2,7 @@ package com.hand.servlet;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,9 @@ import com.hand.service.ShowFilmService;
 public class ShowFilmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	ShowFilmService sfs = new ShowFilmService();
+	private ShowFilmService sfs = new ShowFilmService();
+	private ResultSet resultSet = null;
+	
 	
     public ShowFilmServlet() {
         super();
@@ -24,13 +27,23 @@ public class ShowFilmServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ResultSet resultSet = sfs.show();
+		
+		resultSet = sfs.show();
+		
+		
+		System.out.println(resultSet);
 		
 		RequestDispatcher rd = null;
+		String re = null;
+		try {
+			 re = resultSet.getString("name");
+		} catch (SQLException e) {
+			System.out.println("1");
+			e.printStackTrace();
+			System.out.println("2");
+		}
 		
-		String re = resultSet.getString("");
-		
-		request.setAttribute("resultSet", resultSet);
+		request.setAttribute("resultSet",re);
 		rd = request.getRequestDispatcher("/film/showFilm.jsp");
 		rd.forward(request,response);
 	}

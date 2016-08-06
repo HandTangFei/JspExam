@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.hand.servlet.ShowFilmServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteFilmServlet</servlet-name>
+  	<display-name>DeleteFilmServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.hand.servlet.DeleteFilmServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckServlet</servlet-name>
   	<url-pattern>/CheckServlet</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>ShowFilmServlet</servlet-name>
   	<url-pattern>/ShowFilmServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteFilmServlet</servlet-name>
+  	<url-pattern>/DeleteFilmServlet</url-pattern>
   </servlet-mapping>
 </web-app>
