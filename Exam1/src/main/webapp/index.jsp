@@ -32,7 +32,7 @@
 			</tr>	
 
 			<tr>
-				<td><a href = "<%= request.getContextPath() %>/film/addFilm.jsp">添加film信息</a> </td></td>
+				<td><a href = "<%= request.getContextPath() %>/GetLanguageServlet">添加film信息</a> </td></td>
 			</tr>
 
 		</table>
